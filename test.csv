@@ -1,2 +1,2 @@
-dataset; last_update; data; meta_information; 
-"ch.zrh_airport"
+dataset, last_update, public, key_catalog, full dataset
+"ch.zrh_airport"; "2020-04-01", "true", "https://github.com/mbannert", "https://github.com/mbannert"
