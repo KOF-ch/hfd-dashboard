@@ -67,23 +67,23 @@ export default {
           link: 'https://github.com/KOF-ch/economic-monitoring'
         },
         {
-          title: 'Github',
-          caption: 'github.com/KOF-ch/hfd-dashboard',
-          icon: 'code',
-          link: 'https://github.com/KOF-ch/hfd-dashboard'
-        },
-        {
-          title: 'Twitter',
+          title: 'KOF Twitter',
           caption: '@KOFETH',
           icon: 'rss_feed',
           link: 'https://twitter.com/KOFETH'
         },
         {
           title: 'Gesellschaftsmonitoring COVID19',
-          caption: 'Overview site by StatistikZH',
+          caption: 'Great Overview by StatistikZH',
           icon: 'public',
           link: 'https://statistikzh.github.io/covid19monitoring/'
-        }
+        },
+        {
+          title: 'Dashboard Source Code',
+          caption: 'github.com/KOF-ch/hfd-dashboard',
+          icon: 'code',
+          link: 'https://github.com/KOF-ch/hfd-dashboard'
+        },
       ]
     }
   }
