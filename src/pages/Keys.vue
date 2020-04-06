@@ -69,6 +69,28 @@ name: 'somefuckup',
       ],
       data: [],
          elinechart: {
+           tooltip: {
+        trigger: 'axis',
+        position: function (pt) {
+            return [pt[0], '10%'];
+        }
+    },
+           dataZoom: [{
+        type: 'inside',
+        start: 40,
+        end: 100
+    }, {
+        start: 40,
+        end: 100,
+        handleSize: '80%',
+        handleStyle: {
+            color: '#fff',
+            shadowBlur: 3,
+            shadowColor: 'rgba(0, 0, 0, 0.6)',
+            shadowOffsetX: 2,
+            shadowOffsetY: 2
+        }
+    }],
     xAxis: {
         type: 'category',
         data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
