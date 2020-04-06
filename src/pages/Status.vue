@@ -22,31 +22,30 @@
 </template>
 
 <script>
-import bla from 'neat-csv';
+import neatCSV from 'neat-csv';
 
 export default {
   name: 'PageIndex',
   mounted () {
     fetch(this.catalog_url)
       .then((res) => res.text())
-      .then(bla)
+      .then(neatCSV)
       .then((rows) => {
-        console.log(rows)
         this.data = rows
       });
   },
   data () {
     return {
-      catalog_url: 'https://raw.githubusercontent.com/KOF-ch/hfd-dashboard/master/test.csv',
+      catalog_url: 'https://raw.githubusercontent.com/KOF-ch/economic-monitoring/master/status.csv',
       columns: [
         {
           name: 'dataset',
-          field: 'dataset',
+          field: 'set_id',
           label: 'Dataset'
         },
         {
           name: 'last_update',
-          field: 'last_update',
+          field: 'time',
           label: 'Last Update'
         },
         {
@@ -56,12 +55,12 @@ export default {
         },
         {
           name: 'key_catalog',
-          field: 'key_catalog',
+          field: (row) => `https://kofdata.netlify.com/#/keycatalog?set=${row.set_id}`,
           label: 'Variable Identifier Catalog'
         },
         {
           name: 'full_dataset',
-          field: 'full_dataset',
+          field: (row) => `https://raw.githubusercontent.com/KOF-ch/economic-monitoring/master/data/${row.set_id}.csv`,
           label: 'Full Dataset'
         }
       ],

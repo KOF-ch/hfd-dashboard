@@ -12,11 +12,13 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
+    "echarts": "^4.7.0",
     "neat-csv": "^5.2.0",
-    "quasar": "^1.0.0"
+    "quasar": "^1.0.0",
+    "vue-echarts-v3": "^2.0.1"
   },
   "devDependencies": {
-    "@quasar/app": "^1.0.0"
+    "@quasar/app": "^1.6.1"
   },
   "engines": {
     "node": ">= 10.18.1",
