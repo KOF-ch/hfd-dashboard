@@ -73,7 +73,7 @@ export default {
           link: 'https://twitter.com/KOFETH'
         },
         {
-          title: 'Gesellschaftsmonitoring COVID19',
+          title: 'Gesellschafts- monitoring COVID19',
           caption: 'Great Overview by StatistikZH',
           icon: 'public',
           link: 'https://statistikzh.github.io/covid19monitoring/'

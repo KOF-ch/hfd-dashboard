@@ -1,5 +1,5 @@
 <template>
-  <q-page class="flex flex-topleft">
+  <q-page>
 
       <div class="q-pa-md">
         <q-table
