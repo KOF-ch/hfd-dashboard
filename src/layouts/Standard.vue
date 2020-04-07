@@ -3,7 +3,7 @@
 
     <q-header class="bg-primary text-white">
       <q-toolbar>
-        <q-btn dense flat round icon="menu" @click="left = !left" />
+       
 
         <q-toolbar-title>
           High Frequency Economic Monitoring
@@ -22,7 +22,7 @@
     <q-scroll-area class="fit">
           <q-list v-for="(menuItem, index) in menuList" :key="index">
 
-            <q-item :to="menuItem.to" clickable :active="menuItem.label === 'Outbox'" v-ripple>
+            <q-item :to="menuItem.to" clickable :active="menuItem.label === 'Dataset Status'" v-ripple>
               <q-item-section avatar>
                 <q-icon :name="menuItem.icon" />
               </q-item-section>
@@ -49,23 +49,21 @@
 <script>
 const menuList = [
   {
+    icon: 'mdi-radar',
     label: 'Dataset Status',
     to: '/',
-    separator: true
+    separator: false
   },
   {
-    label: 'Single Time Series',
+    icon: 'mdi-chart-timeline-variant',
+    label: 'Time Series Catalog',
     to: '/keys',
-    separator: false
+    separator: true
   },
   {
     icon: 'archive',
     label: 'High Frequency Data Repository',
-    separator: true
-  },
-  {
-    icon: 'code',
-    label: 'Dashboard Source Code',
+    href: 'https://github.com',
     separator: false
   },
   {
@@ -81,7 +79,12 @@ const menuList = [
   {
     icon: 'help',
     iconColor: 'primary',
-    label: 'Help',
+    label: 'Help & Changelog',
+    separator: false
+  },
+  {
+    icon: 'code',
+    label: 'Dashboard Source Code',
     separator: false
   }
 ]
@@ -89,7 +92,7 @@ const menuList = [
 export default {
   data () {
     return {
-      drawer: false,
+      drawer: true,
       menuList
     }
   }

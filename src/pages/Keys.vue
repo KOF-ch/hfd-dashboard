@@ -14,17 +14,24 @@
     <div class="col">
       <q-table
         class="keys-table"
-        title="Keys by Dataset"
+        title="Time Series by Dataset"
+        row-key="ts_key"
+        selection="single"
+        :selected.sync="selected"
         dense
         :data="data"
         :columns="columns"
         :pagination.sync="pagination"
-        @row-click="updateChart"
-        row-key="name"/>
+        @row-click="updateChart" 
+        />
     </div>
   </div>
 
-  
+ <!--
+TODO: row-click should be selection 
+
+  --> 
+
 </q-page>
 
 </template>
@@ -45,12 +52,15 @@ name: 'keys-by-catalog',
   },
   data() {
       return {
+        selected: [],
         pagination:{
           rowsPerPage: 10
         },
         catalog_url: 'https://raw.githubusercontent.com/KOF-ch/economic-monitoring/master/key_catalog.csv',
         columns: [
         {
+          headerClasses: 'bg-primary text-white',
+          classes: 'bg-grey-2 ellipsis',
           name: 'ts_key',
           field: 'ts_key',
           label: 'ts_key',

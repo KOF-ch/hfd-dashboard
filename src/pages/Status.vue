@@ -3,11 +3,13 @@
 
       <div class="q-pa-md">
         <q-table
-          title="Dataset Overview"
+          title="Dataset Status Overview"
           :data="data"
           :columns="columns"
-        row-key="name"
+          :pagination.sync="pagination"
+          row-key="set_id"
         >
+        
           <q-tr>
             <q-td>
               
@@ -37,14 +39,22 @@ export default {
   data () {
     return {
       catalog_url: 'https://raw.githubusercontent.com/KOF-ch/economic-monitoring/master/status.csv',
+      pagination:{
+          rowsPerPage: 10
+      },
       columns: [
         {
           name: 'dataset',
-          field: 'set_id',
+          headerClasses: 'bg-primary text-white',
+          classes: 'bg-grey-2 ellipsis',
+          sortable: true,
+          required: true,
+          field: 'file',
           label: 'Dataset'
         },
         {
           name: 'last_update',
+          sortable: true,
           field: 'time',
           label: 'Last Update'
         },
@@ -55,12 +65,12 @@ export default {
         },
         {
           name: 'key_catalog',
-          field: (row) => `https://kofdata.netlify.com/#/keycatalog?set=${row.set_id}`,
-          label: 'Variable Identifier Catalog'
+          field: (row) => row.file,
+          label: 'Time Series Catalog'
         },
         {
           name: 'full_dataset',
-          field: (row) => `https://raw.githubusercontent.com/KOF-ch/economic-monitoring/master/data/${row.set_id}.csv`,
+          field: (row) => row.set_id,
           label: 'Full Dataset'
         }
       ],
