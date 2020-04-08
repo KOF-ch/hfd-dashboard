@@ -8,8 +8,8 @@
           <IEcharts :option="elinechart" :resizable="true"/>
         </div>
       </div>
- </div>   
-  
+ </div>
+
   <div class="row">
     <div class="col">
       <q-table
@@ -19,18 +19,18 @@
         selection="single"
         :selected.sync="selected"
         dense
-        :data="data"
+        :data="filteredKeys"
         :columns="columns"
         :pagination.sync="pagination"
-        @row-click="updateChart" 
+        @row-click="updateChart"
         />
     </div>
   </div>
 
  <!--
-TODO: row-click should be selection 
+TODO: row-click should be selection
 
-  --> 
+  -->
 
 </q-page>
 
@@ -47,7 +47,7 @@ name: 'keys-by-catalog',
       .then((res) => res.text())
       .then(neatCSV)
       .then((rows) => {
-        this.data = rows
+        this.keys = rows
       });
   },
   data() {
@@ -73,7 +73,12 @@ name: 'keys-by-catalog',
           sortable: true
         }
       ],
-      data: [],
+
+      // Data
+      keys: [],
+      activeSet: null,
+
+      // Chart
       elinechart: {
         tooltip: {
           trigger: 'axis',
@@ -124,10 +129,19 @@ name: 'keys-by-catalog',
         .then((xy) => { console.log(xy); return xy;})
         .then((z) => this.elinechart.series = [{ data: z, type: 'line' }])
       }
+    },
+    computed: {
+      filteredKeys: function() {
+        if(this.activeSet !== null) {
+          return this.keys.filter((k) => k.dataset === this.activeSet);
+        } else {
+          return this.keys;
+        }
+      }
     }
-  
 
-  
+
+
 }
 
 
