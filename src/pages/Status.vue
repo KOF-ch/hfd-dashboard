@@ -20,27 +20,29 @@
                 {{ props.row.time }}
               </q-td>
               <q-td key="public" :props="props">
-                {{ props.row.public }}
+                 <q-chip outline square icon="done"></q-chip>
+                 <!-- {{props.row.public}} make this dynamic again when we have non-public data here --> 
               </q-td>
 
               <q-td key="key_catalog" :props="props">
-                <router-link
+                <router-link class="file-chips"
                   :to="{path: 'keys', query: { dataset: props.row.set_id }}"
                 >
-                  TODO: Make this a nice component
-                  {{ props.row.set_id }}
+                 <q-chip square icon="storage"></q-chip>
+                  
                 </router-link>
               </q-td>
 
               <q-td key="full_dataset" :props="props">
-                <a :href="`https://raw.githubusercontent.com/KOF-ch/economic-monitoring/master/data/${props.row.file}`">
-                  Make me pretty!
+                <a class="file-chips" :href="`https://raw.githubusercontent.com/KOF-ch/economic-monitoring/master/data/${props.row.file}`">
+                 <q-chip square icon="get_app">.csv</q-chip>
                 </a>
               </q-td>
 
               <q-td key="metadata" :props="props">
-                <a :href="`https://raw.githubusercontent.com/KOF-ch/economic-monitoring/master/data/${props.row.file.replace('.csv', '.json')}`">
-                  Make me pretty too!
+                
+                <a class="file-chips" :href="`https://raw.githubusercontent.com/KOF-ch/economic-monitoring/master/data/${props.row.file.replace('.csv', '.json')}`">
+                 <q-chip square icon="get_app">.json</q-chip>
                 </a>
               </q-td>
             </q-tr>
