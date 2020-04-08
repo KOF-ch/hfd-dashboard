@@ -5,7 +5,9 @@
  <div class="row">
       <div class="col">
         <div class="eline">
-          <IEcharts :option="elinechart" :resizable="true"/>
+          <IEcharts
+            :option="elinechart"
+            :loading="chartIsLoading"/>
         </div>
       </div>
  </div>
@@ -21,6 +23,7 @@
         :data="filteredKeys"
         :columns="columns"
         :pagination.sync="pagination">
+        <!--TODO: check if this can be removed and handled with @row-click-->
           <template v-slot:header="props">
             <q-tr :props="props">
               <q-th v-for="col in props.cols" :key="col.name" :props="props">
@@ -100,6 +103,7 @@ name: 'keys-by-catalog',
       selectedRow: [], // array as multiple are theoretically possible
 
       // Chart
+      chartIsLoading: true,
       elinechart: {
         tooltip: {
           trigger: 'axis',
@@ -149,11 +153,15 @@ name: 'keys-by-catalog',
       },
       setActiveSeries: function(key) {
         this.activeSeries = key;
+        this.chartIsLoading = true;
 
         fetch(`https://datenservice.kof.ethz.ch/api/v1/public/ts?keys=${key}&df=Y-m-d`)
         .then((r) => r.json())
         .then((data) => data[key].map((row) => [row.date, row.value]))
-        .then((series) => this.elinechart.series = [{ data: series, type: 'line' }]); // TODO: Do this proper like
+        .then((series) => {
+          this.elinechart.series[0].data = series;
+          this.chartIsLoading = false;
+        });
       }
     },
     computed: {
