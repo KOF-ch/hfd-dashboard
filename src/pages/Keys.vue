@@ -48,7 +48,8 @@ name: 'keys-by-catalog',
       .then((res) => res.text())
       .then(neatCSV)
       .then((rows) => {
-        this.keys = rows
+        this.keys = rows;
+        this.onRowClick(null, this.filteredKeys[0]);
       });
 
       if(this.$route.query.dataset !== undefined) {
@@ -117,7 +118,7 @@ name: 'keys-by-catalog',
           type: 'value'
         },
        series: [{
-          data: [["2019-11-01",820],["2019-12-01",820],["2020-01-01",820],["2020-02-01", 1320]],
+          data: [],
           type: 'line',
           showSymbol: false
        }]
