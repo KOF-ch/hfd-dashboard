@@ -27,12 +27,6 @@
       </q-table>
     </div>
   </div>
-
- <!--
-TODO: row-click should be selection
-
-  -->
-
 </q-page>
 
 </template>
