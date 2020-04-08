@@ -49,6 +49,10 @@ name: 'keys-by-catalog',
       .then((rows) => {
         this.keys = rows
       });
+
+      if(this.$route.query.dataset !== undefined) {
+        this.activeSet = this.$route.query.dataset;
+      }
   },
   data() {
       return {
