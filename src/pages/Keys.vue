@@ -22,26 +22,8 @@
         dense
         :data="filteredKeys"
         :columns="columns"
-        :pagination.sync="pagination">
-        <!--TODO: check if this can be removed and handled with @row-click-->
-          <template v-slot:header="props">
-            <q-tr :props="props">
-              <q-th v-for="col in props.cols" :key="col.name" :props="props">
-                {{ col.label }}
-              </q-th>
-            </q-tr>
-          </template>
-          <template v-slot:body="props">
-            <q-tr
-              class="cursor-pointer"
-              :props="props"
-              @click.exact="onRowClick(props.row)"
-              >
-              <q-td v-for="col in props.cols" :key="col.name" :props="props">
-                {{ col.value }}
-              </q-td>
-            </q-tr>
-          </template>
+        :pagination.sync="pagination"
+        @row-click="onRowClick" />
       </q-table>
     </div>
   </div>
@@ -147,7 +129,7 @@ name: 'keys-by-catalog',
     },
     methods: {
       // Todo: this is a hacky proof of concept approach
-      onRowClick: function(r) {
+      onRowClick: function(e, r) {
         this.selectedRow = [ r ];
         this.setActiveSeries(r.ts_key);
       },
