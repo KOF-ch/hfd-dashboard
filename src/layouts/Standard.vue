@@ -22,7 +22,7 @@
     <q-scroll-area class="fit">
           <q-list v-for="(menuItem, index) in menuList" :key="index">
 
-            <q-item :to="menuItem.to" clickable :active="menuItem.label === 'Dataset Status'" v-ripple>
+            <q-item :to="menuItem.to" clickable>
               <q-item-section avatar>
                 <q-icon :name="menuItem.icon" />
               </q-item-section>
@@ -30,10 +30,23 @@
                 {{ menuItem.label }}
               </q-item-section>
             </q-item>
-
-           <q-separator v-if="menuItem.separator" />
-
+          <q-separator v-if="menuItem.separator" />
           </q-list>
+
+          <q-list v-for="(menuItem, index) in extList" :key="index">
+            <a class="file-chips" :href="menuItem.href" target="_blank">
+            <q-item clickable>
+              
+              <q-item-section avatar>
+                <q-icon :name="menuItem.icon" />
+              </q-item-section>
+              <q-item-section>
+                {{ menuItem.label }}
+              </q-item-section>
+            </q-item>
+            </a>
+            </q-list>
+
         </q-scroll-area>
 
 
@@ -58,33 +71,40 @@ const menuList = [
     icon: 'mdi-chart-timeline-variant',
     label: 'Time Series Catalog',
     to: '/keys',
-    separator: true
-  },
-  {
-    icon: 'archive',
-    label: 'High Frequency Data Repository',
-    href: 'https://github.com',
-    separator: false
-  },
-  {
-    icon: 'mdi-twitter',
-    label: 'KOF Twitter ',
-    separator: false
-  },
-  {
-    icon: 'public',
-    label: 'Gesellschafts- monitoring COVID19',
     separator: false
   },
   {
     icon: 'help',
     iconColor: 'primary',
-    label: 'Help & Changelog',
+    label: 'Help',
+    to: '/help',
+    separator: true
+  },
+]
+
+const extList = [
+  {
+    icon: 'archive',
+    label: 'High Frequency Data Repository',
+    href: 'https://github.com/KOF-ch/economic-monitoring',
     separator: false
   },
   {
     icon: 'code',
     label: 'Dashboard Source Code',
+    href: 'https://github.com/KOF-ch/hfd-dashboard',
+    separator: false
+  },
+  {
+    icon: 'mdi-twitter',
+    label: 'KOF Twitter ',
+    href: 'https://twitter.com/KOFETH',
+    separator: false
+  },
+  {
+    icon: 'public',
+    label: 'Gesellschafts- monitoring COVID19',
+    href: 'https://www.web.statistik.zh.ch/covid19_indikatoren_uebersicht/#/50/Alle',
     separator: false
   }
 ]
@@ -93,7 +113,8 @@ export default {
   data () {
     return {
       drawer: true,
-      menuList
+      menuList,
+      extList
     }
   }
 }
