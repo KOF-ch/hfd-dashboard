@@ -3,7 +3,7 @@
 
     <q-header class="bg-primary text-white">
       <q-toolbar>
-       
+
 
         <q-toolbar-title>
           High Frequency Economic Monitoring
@@ -22,7 +22,7 @@
     <q-scroll-area class="fit">
           <q-list v-for="(menuItem, index) in menuList" :key="index">
 
-            <q-item :to="menuItem.to" clickable>
+            <q-item :to="menuItem.to" clickable exact>
               <q-item-section avatar>
                 <q-icon :name="menuItem.icon" />
               </q-item-section>
@@ -36,7 +36,7 @@
           <q-list v-for="(menuItem, index) in extList" :key="index">
             <a class="file-chips" :href="menuItem.href" target="_blank">
             <q-item clickable>
-              
+
               <q-item-section avatar>
                 <q-icon :name="menuItem.icon" />
               </q-item-section>
