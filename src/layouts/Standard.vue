@@ -18,8 +18,10 @@
         :breakpoint="500"
         bordered
         content-class="bg-grey-1"
+        id="drawer"
+        :mini="mini"
     >
-    <q-scroll-area class="fit">
+      <q-scroll-area class="fit">
           <q-list v-for="(menuItem) in menuList" :key="menuItem.label">
 
             <q-item :to="menuItem.to" clickable exact>
@@ -50,6 +52,16 @@
 
         </q-scroll-area>
 
+        <div class="drawerhandle absolute">
+          <q-btn
+            dense
+            round
+            unelevated
+            color="grey"
+            :icon="mini ? 'chevron_right' : 'chevron_left'"
+            @click="mini = !mini"
+          />
+        </div>
 
     </q-drawer>
 
@@ -59,6 +71,19 @@
 
   </q-layout>
 </template>
+
+<style inline>
+  .drawerhandle {
+    top: 50%;
+    right: -17px;
+    opacity: 0.2;
+    transition: 0.25s;
+  }
+
+  #drawer:hover .drawerhandle {
+    opacity: 1;
+  }
+</style>
 
 <script>
 const menuList = [
@@ -106,6 +131,7 @@ const extList = [
 export default {
   data () {
     return {
+      mini: true,
       drawer: true,
       menuList,
       extList

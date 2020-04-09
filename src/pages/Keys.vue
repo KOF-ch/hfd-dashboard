@@ -11,7 +11,15 @@
         </div>
       </div>
       <div class="col-4">
-        <q-select dense clearable square outlined v-model="activeSet" :options="datasets" label="Choose dataset" />
+        <q-select 
+        dense 
+        clearable 
+        square 
+        outlined 
+        v-model="activeSet" 
+        :options="datasets" 
+        label="Choose dataset"
+        @input="onChangeSet" />
       <q-table
         class="keys-table"
         title="Time Series by Dataset"
@@ -50,9 +58,7 @@ name: 'keys-by-catalog',
         this.tableIsLoading = false;
       });
 
-      if(this.$route.query.dataset !== undefined) {
-        this.activeSet = this.$route.query.dataset;
-      }
+      this.setActiveSet();
   },
   data() {
       return {
@@ -146,6 +152,20 @@ name: 'keys-by-catalog',
           this.elinechart.title.text = key;
           this.chartIsLoading = false;
         });
+      },
+      onChangeSet: function(value) {
+        const query = value === null ? {} : { dataset: value };
+        this.$router.push({
+          path: '/keys',
+          query
+        });
+      },
+      setActiveSet: function() {
+        if(this.$route.query.dataset !== undefined) {
+          this.activeSet = this.$route.query.dataset;
+        } else {
+          this.activeSet = null;
+        }
       }
     },
     computed: {
@@ -162,6 +182,11 @@ name: 'keys-by-catalog',
                 // Only keep the first occurrence of each item
                 .filter((x, index, array) => array.indexOf(x) == index)
                 .sort();
+      }
+    },
+    watch: {
+      '$route.query.dataset'() {
+        this.setActiveSet();
       }
     }
 
