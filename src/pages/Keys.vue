@@ -67,7 +67,7 @@ name: 'keys-by-catalog',
         selected: [],
         model: null,
         pagination:{
-          rowsPerPage: 10
+          rowsPerPage: 15
         },
         catalog_url: 'https://raw.githubusercontent.com/KOF-ch/economic-monitoring/master/key_catalog.csv',
         columns: [
