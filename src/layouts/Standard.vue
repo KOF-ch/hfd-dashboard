@@ -30,8 +30,9 @@
                 {{ menuItem.label }}
               </q-item-section>
             </q-item>
-          <q-separator v-if="menuItem.separator" />
           </q-list>
+
+          <q-separator/>
 
           <q-list v-for="(menuItem) in extList" :key="menuItem.label">
             <a class="file-chips" :href="menuItem.href" target="_blank">
@@ -64,21 +65,18 @@ const menuList = [
   {
     icon: 'mdi-radar',
     label: 'Dataset Status',
-    to: '/',
-    separator: false
+    to: '/'
   },
   {
     icon: 'mdi-chart-timeline-variant',
     label: 'Time Series Catalog',
-    to: '/keys',
-    separator: false
+    to: '/keys'
   },
   {
     icon: 'help',
     iconColor: 'primary',
     label: 'Help',
-    to: '/help',
-    separator: true
+    to: '/help'
   },
 ]
 
@@ -86,26 +84,22 @@ const extList = [
   {
     icon: 'archive',
     label: 'High Frequency Data Repository',
-    href: 'https://github.com/KOF-ch/economic-monitoring',
-    separator: false
+    href: 'https://github.com/KOF-ch/economic-monitoring'
   },
   {
     icon: 'code',
     label: 'Dashboard Source Code',
-    href: 'https://github.com/KOF-ch/hfd-dashboard',
-    separator: false
+    href: 'https://github.com/KOF-ch/hfd-dashboard'
   },
   {
     icon: 'mdi-twitter',
     label: 'KOF Twitter ',
-    href: 'https://twitter.com/KOFETH',
-    separator: false
+    href: 'https://twitter.com/KOFETH'
   },
   {
     icon: 'public',
     label: 'Gesellschafts- monitoring COVID19',
-    href: 'https://www.web.statistik.zh.ch/covid19_indikatoren_uebersicht/#/50/Alle',
-    separator: false
+    href: 'https://www.web.statistik.zh.ch/covid19_indikatoren_uebersicht/#/50/Alle'
   }
 ]
 
