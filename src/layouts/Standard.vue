@@ -20,7 +20,7 @@
         content-class="bg-grey-1"
     >
     <q-scroll-area class="fit">
-          <q-list v-for="(menuItem, index) in menuList" :key="index">
+          <q-list v-for="(menuItem) in menuList" :key="menuItem.label">
 
             <q-item :to="menuItem.to" clickable exact>
               <q-item-section avatar>
@@ -33,7 +33,7 @@
           <q-separator v-if="menuItem.separator" />
           </q-list>
 
-          <q-list v-for="(menuItem, index) in extList" :key="index">
+          <q-list v-for="(menuItem) in extList" :key="menuItem.label">
             <a class="file-chips" :href="menuItem.href" target="_blank">
             <q-item clickable>
 

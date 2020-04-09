@@ -11,6 +11,7 @@
         </div>
       </div>
       <div class="col-4">
+        <q-select dense clearable square outlined v-model="activeSet" :options="datasets" label="Choose dataset" />
       <q-table
         class="keys-table"
         title="Time Series by Dataset"
@@ -54,6 +55,7 @@ name: 'keys-by-catalog',
   data() {
       return {
         selected: [],
+        model: null,
         pagination:{
           rowsPerPage: 10
         },
@@ -83,22 +85,25 @@ name: 'keys-by-catalog',
             return [pt[0], '10%'];
           }
         },
-        dataZoom: [{
-          type: 'inside',
-          start: 40,
-          end: 100
+        title: {
+          text: 'some graph'
         },
-        {
-          start: 40,
-          end: 100,
-          handleSize: '80%',
-          handleStyle: {
-              color: '#fff',
-              shadowBlur: 3,
-              shadowColor: 'rgba(0, 0, 0, 0.6)',
-              shadowOffsetX: 2,
-              shadowOffsetY: 2
-          }
+        dataZoom: [{
+            type: 'inside',
+            start: 40,
+            end: 100
+          },
+          {
+            start: 40,
+            end: 100,
+            handleSize: '80%',
+            handleStyle: {
+                color: '#fff',
+                shadowBlur: 3,
+                shadowColor: 'rgba(0, 0, 0, 0.6)',
+                shadowOffsetX: 2,
+                shadowOffsetY: 2
+            }
        }],
        xAxis: {
           type: 'time',
@@ -135,6 +140,7 @@ name: 'keys-by-catalog',
         .then((data) => data[key].map((row) => [row.date, row.value]))
         .then((series) => {
           this.elinechart.series[0].data = series;
+          this.elinechart.title.text = key;
           this.chartIsLoading = false;
         });
       }
@@ -146,6 +152,13 @@ name: 'keys-by-catalog',
         } else {
           return this.keys;
         }
+      },
+      datasets: function() {
+        return this.keys
+                .map((x) => x.dataset)
+                // Only keep the first occurrence of each item
+                .filter((x, index, array) => array.indexOf(x) == index)
+                .sort();
       }
     }
 
