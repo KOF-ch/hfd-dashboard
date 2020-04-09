@@ -4,6 +4,7 @@
       <div class="q-pa-md">
         <q-table
           title="Dataset Status Overview"
+          :loading="tableIsLoading"
           :data="data"
           :columns="columns"
           :pagination.sync="pagination"
@@ -65,11 +66,13 @@ export default {
       .then(neatCSV)
       .then((rows) => {
         this.data = rows;
+        this.tableIsLoading = false;
       });
   },
   data () {
     return {
       catalog_url: 'https://raw.githubusercontent.com/KOF-ch/economic-monitoring/master/status.csv',
+      tableIsLoading: true,
       pagination:{
           rowsPerPage: 10
       },

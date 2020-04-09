@@ -16,6 +16,7 @@
         class="keys-table"
         title="Time Series by Dataset"
         row-key="ts_key"
+        :loading="tableIsLoading"
         :selected.sync="selectedRow"
         dense
         :data="filteredKeys"
@@ -46,6 +47,7 @@ name: 'keys-by-catalog',
       .then((rows) => {
         this.keys = rows;
         this.onRowClick(null, this.filteredKeys[0]);
+        this.tableIsLoading = false;
       });
 
       if(this.$route.query.dataset !== undefined) {
@@ -70,6 +72,8 @@ name: 'keys-by-catalog',
           sortable: true
         }
       ],
+
+      tableIsLoading: true,
 
       // Data
       keys: [],
