@@ -7,10 +7,8 @@
           :data="data"
           :columns="columns"
           :pagination.sync="pagination"
-          row-key="set_id"
+          row-key="file"
         >
-
-          <!--TODO: this may not be intended to be userd more than once...-->
           <template v-slot:body="props">
             <q-tr :props="props">
               <q-td key="dataset" :props="props">
@@ -21,7 +19,7 @@
               </q-td>
               <q-td key="public" :props="props">
                  <q-chip outline square icon="done"></q-chip>
-                 <!-- {{props.row.public}} make this dynamic again when we have non-public data here --> 
+                 <!-- {{props.row.public}} make this dynamic again when we have non-public data here -->
               </q-td>
 
               <q-td key="key_catalog" :props="props">
@@ -29,7 +27,7 @@
                   :to="{path: 'keys', query: { dataset: props.row.set_id }}"
                 >
                  <q-chip square icon="storage"></q-chip>
-                  
+
                 </router-link>
               </q-td>
 
@@ -40,7 +38,7 @@
               </q-td>
 
               <q-td key="metadata" :props="props">
-                
+
                 <a class="file-chips" :href="`https://raw.githubusercontent.com/KOF-ch/economic-monitoring/master/data/${props.row.file.replace('.csv', '.json')}`">
                  <q-chip square icon="get_app">.json</q-chip>
                 </a>
@@ -66,7 +64,7 @@ export default {
       .then((res) => res.text())
       .then(neatCSV)
       .then((rows) => {
-        this.data = rows
+        this.data = rows;
       });
   },
   data () {
