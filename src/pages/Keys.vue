@@ -83,6 +83,7 @@ name: 'keys-by-catalog',
       // Chart
       chartIsLoading: true,
       elinechart: {
+        animation: false,
         tooltip: {
           trigger: 'axis',
           position: function (pt) {
