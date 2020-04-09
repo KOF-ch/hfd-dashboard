@@ -12,7 +12,7 @@
           <template v-slot:body="props">
             <q-tr :props="props">
               <q-td key="dataset" :props="props">
-                {{ props.row.set_id }}
+                {{ props.row.subset }}
               </q-td>
               <q-td key="last_update" :props="props">
                 {{ props.row.time }}
