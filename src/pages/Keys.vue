@@ -4,13 +4,15 @@
 
  <div class="row">
       <div class="col-7">
-        <div class="eline">
+        <div class="eline q-pa-md" >
           <IEcharts
             :option="elinechart"
             :loading="chartIsLoading"/>
         </div>
       </div>
       <div class="col-4">
+        <div class="q-pa-md">
+        <div class="q-table__title">Time Series by Dataset</div>
         <q-select 
         dense 
         clearable 
@@ -22,7 +24,6 @@
         @input="onChangeSet" />
       <q-table
         class="keys-table"
-        title="Time Series by Dataset"
         row-key="ts_key"
         :loading="tableIsLoading"
         :selected.sync="selectedRow"
@@ -32,6 +33,7 @@
         :pagination.sync="pagination"
         @row-click="onRowClick" />
       </q-table>
+      </div>
     </div>
 
 

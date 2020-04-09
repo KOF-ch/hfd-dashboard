@@ -8,7 +8,9 @@
         <q-toolbar-title>
           High Frequency Economic Monitoring <q-badge color="secondary">alpha</q-badge>
         </q-toolbar-title>
-        <div>by KOF | ETH Zurich</div>
+        <div>
+          <a class="koflink" target="_blank" href="https://kof.ethz.ch">by KOF | ETH Zurich </a>
+        </div>
       </q-toolbar>
     </q-header>
 
@@ -72,18 +74,6 @@
   </q-layout>
 </template>
 
-<style inline>
-  .drawerhandle {
-    top: 50%;
-    right: -17px;
-    opacity: 0.2;
-    transition: 0.25s;
-  }
-
-  #drawer:hover .drawerhandle {
-    opacity: 1;
-  }
-</style>
 
 <script>
 const menuList = [

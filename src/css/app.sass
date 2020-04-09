@@ -6,6 +6,12 @@
 .eline
   height: 400px
 
+.koflink
+  color: #fff
+  text-decoration: none
+
+
+
 .q-table__card
   box-shadow: none !important
 
@@ -13,7 +19,7 @@
   
   td:first-child
     /* bg color is important for td; just specify one */
-    background-color: #82be1e !important
+    /* background-color: secondary !important */
     
 
   tr th
@@ -42,3 +48,14 @@
   td:first-child, th:first-child
     position: sticky
     left: 0
+
+
+.drawerhandle 
+    top: 50%
+    right: -17px
+    opacity: 0.2
+    transition: 0.25s
+  
+
+#drawer:hover .drawerhandle
+  opacity: 1;
