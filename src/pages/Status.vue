@@ -19,7 +19,7 @@
                 {{ props.row.time }}
               </q-td>
               <q-td key="public" :props="props">
-                 <q-chip outline square icon="done"></q-chip>
+                 <q-icon name="done" size="sm"></q-icon>
                  <!-- {{props.row.public}} make this dynamic again when we have non-public data here -->
               </q-td>
 
@@ -27,7 +27,7 @@
                 <router-link class="file-chips"
                   :to="{path: 'keys', query: { dataset: props.row.set_id }}"
                 >
-                 <q-chip square icon="storage"></q-chip>
+                 <q-chip square> <q-icon name="storage" size="sm" color="grey"></q-icon></q-chip>
 
                 </router-link>
               </q-td>
@@ -95,7 +95,7 @@ export default {
         {
           name: 'public',
           field: 'public',
-          label: 'is_public'
+          label: 'Public Dataset'
         },
         {
           name: 'key_catalog',
