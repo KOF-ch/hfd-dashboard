@@ -6,7 +6,7 @@
 
 
         <q-toolbar-title>
-          High Frequency Economic Monitoring
+          High Frequency Economic Monitoring <q-badge color="secondary">alpha</q-badge>
         </q-toolbar-title>
         <div>by KOF | ETH Zurich</div>
       </q-toolbar>

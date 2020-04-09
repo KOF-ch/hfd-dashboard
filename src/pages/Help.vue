@@ -1,9 +1,7 @@
 <template>
-  <q-page padding>
+  <q-page class="q-pa-sm">
 
-<q-toolbar-title>
-  Help
-</q-toolbar-title>
+<h2>Help</h2>
 
   - basic idea of the site
   - swissdata format
