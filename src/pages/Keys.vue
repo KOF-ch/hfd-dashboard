@@ -3,17 +3,14 @@
 
 
  <div class="row">
-      <div class="col">
+      <div class="col-7">
         <div class="eline">
           <IEcharts
             :option="elinechart"
             :loading="chartIsLoading"/>
         </div>
       </div>
- </div>
-
-  <div class="row">
-    <div class="col">
+      <div class="col-4">
       <q-table
         class="keys-table"
         title="Time Series by Dataset"
@@ -26,7 +23,11 @@
         @row-click="onRowClick" />
       </q-table>
     </div>
-  </div>
+      
+
+
+ </div>
+
 </q-page>
 
 </template>
@@ -64,12 +65,6 @@ name: 'keys-by-catalog',
           name: 'ts_key',
           field: 'ts_key',
           label: 'ts_key',
-          sortable: true
-        },
-        {
-          name: 'dataset',
-          field: 'dataset',
-          label: 'Dataset',
           sortable: true
         }
       ],
