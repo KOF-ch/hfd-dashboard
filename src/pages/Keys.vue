@@ -24,7 +24,7 @@
         @row-click="onRowClick" />
       </q-table>
     </div>
-      
+
 
 
  </div>
@@ -111,13 +111,11 @@ name: 'keys-by-catalog',
        yAxis: {
           type: 'value'
         },
+       color: ['#007A92'],
        series: [{
           data: [],
           type: 'line',
-          showSymbol: false,
-          lineStyle: {
-            color: '#007A92'
-          }
+          showSymbol: false
        }]
       },
       }
@@ -137,7 +135,7 @@ name: 'keys-by-catalog',
 
         fetch(`https://datenservice.kof.ethz.ch/api/v1/public/ts?keys=${key}&df=Y-m-d`)
         .then((r) => r.json())
-        .then((data) => data[key].map((row) => [row.date, row.value]))
+        .then((data) => data[key].map((row) => [row.date, parseFloat(row.value.toFixed(2))]))
         .then((series) => {
           this.elinechart.series[0].data = series;
           this.elinechart.title.text = key;
