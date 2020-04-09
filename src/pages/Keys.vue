@@ -114,7 +114,10 @@ name: 'keys-by-catalog',
        series: [{
           data: [],
           type: 'line',
-          showSymbol: false
+          showSymbol: false,
+          lineStyle: {
+            color: '#007A92'
+          }
        }]
       },
       }
