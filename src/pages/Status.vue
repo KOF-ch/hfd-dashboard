@@ -74,7 +74,7 @@ export default {
       catalog_url: 'https://raw.githubusercontent.com/KOF-ch/economic-monitoring/master/status.csv',
       tableIsLoading: true,
       pagination:{
-          rowsPerPage: 10
+          rowsPerPage: 20
       },
       columns: [
         {
