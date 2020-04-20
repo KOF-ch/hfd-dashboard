@@ -102,6 +102,11 @@ const extList = [
     href: 'https://github.com/KOF-ch/economic-monitoring'
   },
   {
+    icon: 'mdi-cloud-braces',
+    label: 'Swissdata Format',
+    href: 'https://github.com/swissdata/demo'
+  },
+  {
     icon: 'code',
     label: 'Dashboard Source Code',
     href: 'https://github.com/KOF-ch/hfd-dashboard'

@@ -51,6 +51,15 @@ https://datenservice.kof.ethz.ch/api/v1/public/ts?keys=ch.zrh_airport.arrival.to
  </div>   
 
 
+<div class="text-h6 q-pt-md">Swissdata Format</div>
+
+swissdata is an attempt to improve machine readability of publicly available data.
+The project was born based on our need to make macroeconomic time series more accessible,
+but it seems extendable to other datasets as well. All datasets on this website are available
+in swissdata format. For a thorough description and motivation, visit
+https://github.com/swissdata/demo
+
+
 
     
     <div class="text-h5 q-pt-md">Thanks</div>
