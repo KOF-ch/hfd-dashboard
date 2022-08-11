@@ -1,6 +1,8 @@
 # HFD Dashboard (hfd-dashboard)
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/79b229f6-c4b1-4d60-8392-7f9decb56f87/deploy-status)](https://app.netlify.com/sites/kofdata/deploys)
+Website is discontinued and not operated by KOF anymore. FWIW, the code should run when deployed to netlify or GitHub Pages. 
+
+<!-- [![Netlify Status](https://api.netlify.com/api/v1/badges/79b229f6-c4b1-4d60-8392-7f9decb56f87/deploy-status)](https://app.netlify.com/sites/kofdata/deploys) -->
 
 Economic High Frequency Data Sourcing Status Dashboard
 
